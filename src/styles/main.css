@@ -13,7 +13,7 @@
 
 body {
   font-family: 'Red Hat Text', sans-serif;
-  background-color: #fcf8f5;
+  background-color: #f4f2f1ff;
   color: #260f08;
   line-height: 1.6;
   padding-top: 120px;
@@ -141,7 +141,7 @@ header {
 
 .add-to-cart-btn {
   position: absolute;
-  bottom: -20px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   background: white;
