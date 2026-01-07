@@ -383,12 +383,19 @@ header {
   max-width: 420px;
   width: 92%;
   max-height: 80vh;
-  overflow-y: visible;
+  overflow-y: auto;
   position: relative;
 }
 
-.modal-content.scrollable {
-  overflow-y: auto;
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 999px;
+}
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .modal-close-btn {
