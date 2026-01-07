@@ -67,12 +67,20 @@ class DessertShop {
         this.removeFromCart(productId);
       }
 
-      if (target.id === 'confirm-order') {
+      if (target.id === 'confirm-order' || target.id === 'mobile-confirm-order') {
         this.confirmOrder();
       }
 
       if (target.id === 'start-new-order') {
         this.startNewOrder();
+      }
+
+      if (target.id === 'view-all-order-items') {
+        this.showAllOrderItems();
+      }
+
+      if (target.id === 'close-order-modal') {
+        this.closeOrderModal();
       }
     });
   }
@@ -207,8 +215,49 @@ class DessertShop {
   private confirmOrder(): void {
     const modal = document.getElementById('order-modal');
     const orderSummary = document.getElementById('order-summary');
+    const modalContent = modal ? modal.querySelector('.modal-content') as HTMLElement | null : null;
     
     if (!modal || !orderSummary) return;
+
+    const itemsToShow = this.cart.items.slice(0, 2);
+    const showViewAll = this.cart.items.length > 2;
+
+    if (modalContent) {
+      modalContent.classList.remove('scrollable');
+    }
+
+    orderSummary.innerHTML = `
+      <div class="order-items">
+        ${itemsToShow.map(item => `
+          <div class="order-item">
+            <img src="${item.product.image.thumbnail}" alt="${item.product.name}">
+            <div class="item-details">
+              <h4>${item.product.name}</h4>
+              <div class="item-pricing">
+                <span class="quantity">${item.quantity}x</span>
+                <span class="unit-price">@ $${item.product.price.toFixed(2)}</span>
+              </div>
+            </div>
+            <span class="item-total">$${(item.product.price * item.quantity).toFixed(2)}</span>
+          </div>
+        `).join('')}
+        ${showViewAll ? `<button class="view-all-btn" id="view-all-order-items">View all (${this.cart.items.length})</button>` : ''}
+      </div>
+      <div class="order-total">
+        <span>Order Total</span>
+        <span class="total-amount">$${this.cart.total.toFixed(2)}</span>
+      </div>
+    `;
+
+    modal.style.display = 'flex';
+  }
+
+  private showAllOrderItems(): void {
+    const modal = document.getElementById('order-modal');
+    const orderSummary = document.getElementById('order-summary');
+    const modalContent = modal ? modal.querySelector('.modal-content') as HTMLElement | null : null;
+
+    if (!modal || !orderSummary || !modalContent) return;
 
     orderSummary.innerHTML = `
       <div class="order-items">
@@ -232,7 +281,18 @@ class DessertShop {
       </div>
     `;
 
-    modal.style.display = 'flex';
+    modalContent.classList.add('scrollable');
+  }
+
+  private closeOrderModal(): void {
+    const modal = document.getElementById('order-modal');
+    if (modal) {
+      const modalContent = modal.querySelector('.modal-content') as HTMLElement | null;
+      if (modalContent) {
+        modalContent.classList.remove('scrollable');
+      }
+      modal.style.display = 'none';
+    }
   }
 
   private startNewOrder(): void {

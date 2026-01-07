@@ -10,7 +10,7 @@
 <body>
     <div id="app">
         <header>
-            <h1>TypeScript-Dessert-Shop</h1>
+            <h1>Desserts</h1>
             <div class="cart-icon" id="cart-icon">
                 <img src="./Project asset/assets/images/icon-add-to-cart.svg" alt="Cart">
                 <span class="cart-badge" id="cart-badge">0</span>
@@ -71,14 +71,17 @@
             </div>
         </div>
     </div>
-        <!-- <div class="modal-content">
+
+    <div class="modal" id="order-modal" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close-btn" id="close-order-modal" aria-label="Close order confirmation">✕</button>
             <img src="./Project asset/assets/images/icon-order-confirmed.svg" alt="Order confirmed">
             <h2>Order Confirmed</h2>
             <p>We hope you enjoy your food!</p>
             <div class="order-summary" id="order-summary"></div>
             <button class="start-new-order-btn" id="start-new-order">Start New Order</button>
         </div>
-    </div> -->
+    </div>
 
     <script src="./dist/data/products.js"></script>
     <script src="./dist/index.js"></script>

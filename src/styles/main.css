@@ -13,7 +13,7 @@
 
 body {
   font-family: 'Red Hat Text', sans-serif;
-  background-color: #f4f2f1ff;
+  background-color: #fcf8f5;
   color: #260f08;
   line-height: 1.6;
   padding-top: 120px;
@@ -57,8 +57,7 @@ header {
   position: absolute;
   top: -8px;
   right: -8px;
-  background: #f48c1dff;
-  /* background: #c73a0f; */
+  background: #c73a0f;
   color: white;
   border-radius: 50%;
   width: 20px;
@@ -111,7 +110,7 @@ header {
 }
 
 .product-card.selected .product-image img {
-  border: 2px solid #f48c1dff;
+  border: 2px solid #c73a0f;
 }
 
 .product-image {
@@ -141,11 +140,11 @@ header {
 
 .add-to-cart-btn {
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   background: white;
-  border: 1px solid #f48c1dff;
+  border: 1px solid #c73a0f;
   border-radius: 24px;
   padding: 0.75rem 1.5rem;
   display: flex;
@@ -159,7 +158,7 @@ header {
 }
 
 .add-to-cart-btn:hover {
-  background: #f48c1dff;
+  background: #c73a0f;
   color: white;
 }
 
@@ -170,10 +169,10 @@ header {
 
 .quantity-controls {
   position: absolute;
-  bottom: -20px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background: #f48c1dff;
+  background: #c73a0f;
   border-radius: 24px;
   padding: 0.75rem 1.5rem;
   display: flex;
@@ -223,7 +222,7 @@ header {
 }
 
 .product-price {
-  color:#f48c1dff;
+  color: #c73a0f;
   font-weight: 600;
   font-size: 1rem;
 }
@@ -241,7 +240,7 @@ header {
 }
 
 .cart h2 {
-  color:#f48c1dff;
+  color: #c73a0f;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -287,7 +286,7 @@ header {
 }
 
 .quantity {
-  color: #f48c1dff;
+  color: #c73a0f;
   font-weight: 600;
 }
 
@@ -349,7 +348,7 @@ header {
 
 .confirm-order-btn {
   width: 100%;
-  background: #f48c1dff;
+  background: #c73a0f;
   color: white;
   border: none;
   border-radius: 24px;
@@ -361,7 +360,7 @@ header {
 }
 
 .confirm-order-btn:hover {
-  background: #f48c1dff;
+  background: #952108;
 }
 
 .modal {
@@ -371,7 +370,7 @@ header {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 1000;
@@ -380,42 +379,79 @@ header {
 .modal-content {
   background: white;
   border-radius: 12px;
-  padding: 2rem;
-  max-width: 500px;
-  width: 90%;
+  padding: 1.5rem;
+  max-width: 420px;
+  width: 92%;
   max-height: 80vh;
+  overflow-y: visible;
+  position: relative;
+}
+
+.modal-content.scrollable {
   overflow-y: auto;
 }
 
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #87635a;
+}
+
+.modal-close-btn:hover {
+  color: #260f08;
+}
+
+.view-all-btn {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #c73a0f;
+  background: white;
+  color: #c73a0f;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.view-all-btn:hover {
+  background: #ffe4d8;
+}
+
 .modal-content img {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 1.5rem;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1rem;
 }
 
 .modal-content h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .modal-content p {
   color: #87635a;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .order-summary {
   background: #fcf8f5;
   border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .order-item {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
   border-bottom: 1px solid #f4edeb;
 }
 
@@ -458,7 +494,7 @@ header {
 
 .start-new-order-btn {
   width: 100%;
-  background: #f48c1dff;
+  background: #c73a0f;
   color: white;
   border: none;
   border-radius: 24px;
@@ -470,7 +506,7 @@ header {
 }
 
 .start-new-order-btn:hover {
-  background: #f48c1dff;
+  background: #952108;
 }
 
 @media (max-width: 768px) {

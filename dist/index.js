@@ -73,6 +73,14 @@ class DessertShop {
                 this.startNewOrder();
             }
 
+            if (target.id === 'view-all-order-items') {
+                this.showAllOrderItems();
+            }
+
+            if (target.id === 'close-order-modal') {
+                this.closeOrderModal();
+            }
+
             if (target.closest('#cart-icon')) {
                 this.toggleMobileCart();
             }
@@ -277,8 +285,49 @@ class DessertShop {
     confirmOrder() {
         const modal = document.getElementById('order-modal');
         const orderSummary = document.getElementById('order-summary');
+        const modalContent = modal ? modal.querySelector('.modal-content') : null;
         
         if (!modal || !orderSummary) return;
+
+        const itemsToShow = this.cart.items.slice(0, 2);
+        const showViewAll = this.cart.items.length > 2;
+
+        if (modalContent) {
+            modalContent.classList.remove('scrollable');
+        }
+
+        orderSummary.innerHTML = `
+            <div class="order-items">
+                ${itemsToShow.map(item => `
+                    <div class="order-item">
+                        <img src="${item.product.image.thumbnail}" alt="${item.product.name}">
+                        <div class="item-details">
+                            <h4>${item.product.name}</h4>
+                            <div class="item-pricing">
+                                <span class="quantity">${item.quantity}x</span>
+                                <span class="unit-price">@ $${item.product.price.toFixed(2)}</span>
+                            </div>
+                        </div>
+                        <span class="item-total">$${(item.product.price * item.quantity).toFixed(2)}</span>
+                    </div>
+                `).join('')}
+                ${showViewAll ? `<button class="view-all-btn" id="view-all-order-items">View all (${this.cart.items.length})</button>` : ''}
+            </div>
+            <div class="order-total">
+                <span>Order Total</span>
+                <span class="total-amount">$${this.cart.total.toFixed(2)}</span>
+            </div>
+        `;
+
+        modal.style.display = 'flex';
+    }
+
+    showAllOrderItems() {
+        const modal = document.getElementById('order-modal');
+        const orderSummary = document.getElementById('order-summary');
+        const modalContent = modal ? modal.querySelector('.modal-content') : null;
+
+        if (!modal || !orderSummary || !modalContent) return;
 
         orderSummary.innerHTML = `
             <div class="order-items">
@@ -302,7 +351,18 @@ class DessertShop {
             </div>
         `;
 
-        modal.style.display = 'flex';
+        modalContent.classList.add('scrollable');
+    }
+
+    closeOrderModal() {
+        const modal = document.getElementById('order-modal');
+        if (modal) {
+            const modalContent = modal.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.classList.remove('scrollable');
+            }
+            modal.style.display = 'none';
+        }
     }
 
     startNewOrder() {
