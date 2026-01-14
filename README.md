@@ -8,7 +8,7 @@ A modern, responsive dessert shop application built with TypeScript, featuring a
 - **Shopping Cart**: Add, remove, and modify quantities of items
 - **Order Management**: Confirm orders with detailed summary
 - **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **TypeScript**: Fully typed for better development experience
+- **TypeScript**: Fully typed for better development experience <br/>
   <a href="https://ndaziramiyep.github.io/TypeScript-Dessert-Shop/"> Project Live Demo<a>
 
 ## Project Structure
