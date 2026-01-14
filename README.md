@@ -9,6 +9,7 @@ A modern, responsive dessert shop application built with TypeScript, featuring a
 - **Order Management**: Confirm orders with detailed summary
 - **Responsive Design**: Works on desktop, tablet, and mobile devices
 - **TypeScript**: Fully typed for better development experience
+  <a href="https://ndaziramiyep.github.io/TypeScript-Dessert-Shop/"> Project Live Demo<a>
 
 ## Project Structure
 
